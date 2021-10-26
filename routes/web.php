@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    Auth\LoginController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.painel.home');
+});
+
+Route::namespace("Auth")->group(function () {
+    Route::get("/login", [LoginController::class, 'index'])->name("login.index");
 });
