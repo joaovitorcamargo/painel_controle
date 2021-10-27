@@ -17,9 +17,25 @@ use App\Http\Controllers\{
 */
 
 Route::get('/', function () {
-    return view('pages.painel.home');
+    return redirect()->route('login.index');
 });
 
 Route::namespace("Auth")->group(function () {
     Route::get("/login", [LoginController::class, 'index'])->name("login.index");
+});
+
+Route::get('/editar', function () {
+    return view('pages.painel.editar');
+});
+Route::get('/deletar', function () {
+    return view('pages.painel.deletar');
+});
+Route::get('/favoritos', function () {
+    return view('pages.painel.favorito');
+});
+Route::get('/home', function () {
+    return view('pages.painel.home');
+});
+Route::get('/inserir', function () {
+    return view('pages.painel.inserir');
 });
