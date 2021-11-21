@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    Auth\LoginController
+    Auth\LoginController,
+    Auth\RegisterController
 };
 
 /*
@@ -22,6 +23,8 @@ Route::get('/', function () {
 
 Route::namespace("Auth")->group(function () {
     Route::get("/login", [LoginController::class, 'index'])->name("login.index");
+    Route::post("/login", [LoginController::class, 'auth'])->name("login.auth");
+    Route::post("/register", [RegisterController::class, 'register'])->name("register");
 });
 
 Route::get('/editar', function () {
