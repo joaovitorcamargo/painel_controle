@@ -18,8 +18,6 @@ class LoginController extends Controller
     }
     public function index()
     {
-        if (Auth::check()) {
-        }
         return view('pages.login.index');
     }
     public function auth(LoginUserRequest $request)
@@ -33,7 +31,7 @@ class LoginController extends Controller
             }
 
             Auth::login($user_exist);
-            return redirect()->route('login.index');
+            return redirect()->route('painel.home');
         } catch (Exception $e) {
             return redirect()->route('login.index')->withErrors($e->getMessage());
         }

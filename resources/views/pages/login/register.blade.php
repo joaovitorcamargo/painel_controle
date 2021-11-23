@@ -1,20 +1,23 @@
 @extends('layout.default')
 @section('title', 'Painel de Controle - Login')
 @section('content')
-<form action="{{route('login.auth')}}" method="POST" class="w-75">
+<form action="{{route('register')}}" method="POST" class="w-75">
     @csrf
     <div class="mb-3">
         <img src="/img/marvel-logo-4.png" class="w-100" alt="logo Marvel">
     </div>
     <div class="mb-3">
-        <input type="email" class="form-control login_height_form" name ="email" placeholder="E-mail">
+        <input type="text" class="form-control login_height_form" name="name" placeholder="Nome">
     </div>
     <div class="mb-3">
-        <input type="password" class="form-control login_height_form" name ="password" placeholder="Senha">
+        <input type="email" class="form-control login_height_form" name="email" placeholder="E-mail">
+    </div>
+    <div class="mb-3">
+        <input type="password" class="form-control login_height_form" name="password" placeholder="Senha">
     </div>
     <div class="d-grid gap-2">
-        <input class="login_height_form login_button" type="submit" value="Login">
-        <a class="btn login_height_form login_button" href="{{route('register.index')}}">Registrar</a>
+        <input class="login_height_form login_button" type="submit" value="Registrar">
+        <a class="btn login_height_form login_button" href="{{route('login.index')}}">Login</a>
     </div>
     @if ($errors->any())
         <div class="alert alert-danger mt-3">

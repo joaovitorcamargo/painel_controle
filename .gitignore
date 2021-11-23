@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
+/public/img/img_heroi
+/public/img/img_heroi/*
 /storage/*.key
 /vendor
 .env

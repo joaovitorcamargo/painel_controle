@@ -18,6 +18,10 @@ class RegisterController extends Controller
     {
         $this->user = $user;
     }
+    public function index()
+    {
+        return view('pages.login.register');
+    }
     public function register(RegisterUserRequest $request)
     {
         try {
@@ -33,11 +37,12 @@ class RegisterController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
+                'is_admin' => 2
             ]);
 
-            return redirect()->back()->with('message', 'Usuário registrado com sucesso');
+            return redirect()->route('register.index')->with('message', 'Usuário registrado com sucesso');
         } catch (Exception $e) {
-            return redirect()->route('login.index')->withErrors($e->getMessage());
+            return redirect()->route('register.index')->withErrors($e->getMessage());
         }
     }
 }
